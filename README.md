@@ -15,6 +15,11 @@ iex(3)> AESCrypt.read!("example.aes", "supersecret")
 
 ## Limitations
 
+* The password KDF used by the AES Crypt file format is quite weak by modern
+  standards, potentially allowing brute-force attacks on the passphrase; this
+  is a limitation of the file format, not of this implementation; use a strong
+  passphrase to mitigate the risk, and consider alternative storage formats for
+  highly sensitive data
 * Supports v2 format only
 * Decrypts/encrypts entire contents in memory; no streaming
 * No attempts are made to protect keying material: the passphrase, derived key,
